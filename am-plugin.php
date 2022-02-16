@@ -17,10 +17,10 @@
 
 namespace AwesomeMotive\AMPlugin;
 
- // Stop execution if the file is called directly
+// Stop execution if the file is called directly.
 defined( 'ABSPATH' ) || exit;
 
- // Composer autoloder file
+// Composer autoloder file.
 require_once __DIR__ . '/vendor/autoload.php';
 
 /**

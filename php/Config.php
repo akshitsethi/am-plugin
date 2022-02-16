@@ -51,7 +51,7 @@ class Config {
 	/**
 	 * Get plugin name.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public static function get_plugin_name() : string {
 		return esc_html__( 'AM Plugin', 'am-plugin' );
