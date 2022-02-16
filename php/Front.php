@@ -12,11 +12,11 @@ namespace AwesomeMotive\AMPlugin;
  */
 class Front {
 
-    /**
+	/**
 	 * Class constructor.
 	 */
 	public function __construct() {
 
-    }
+	}
 
 }

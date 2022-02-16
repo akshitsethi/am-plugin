@@ -12,11 +12,11 @@ namespace AwesomeMotive\AMPlugin;
  */
 class Admin {
 
-    /**
+	/**
 	 * Class constructor.
 	 */
 	public function __construct() {
 
-    }
+	}
 
 }
