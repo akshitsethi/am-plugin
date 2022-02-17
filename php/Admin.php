@@ -18,7 +18,7 @@ class Admin {
 	 * Class constructor.
 	 */
 	public function __construct() {
-		add_action( 'admin_notices', array( $this, 'fetch_data' ) );
+		add_action( 'wp_ajax_amplugin_fetch_data', array( $this, 'fetch_data' ) );
 		add_action( 'wp_ajax_nopriv_amplugin_fetch_data', array( $this, 'fetch_data' ) );
 	}
 

@@ -86,7 +86,7 @@ class API {
 			$this->response = array(
 				'status'  => 'success',
 				'message' => esc_html__( 'Data has been fetched successfully from the API endpoint.', 'am-plugin' ),
-				'data'    => $transient_data,
+				'data'    => json_decode( $transient_data, true ),
 			);
 
 			return $this->response;
@@ -105,7 +105,7 @@ class API {
 			$this->response = array(
 				'status'  => 'success',
 				'message' => esc_html__( 'Data has been fetched successfully from the API endpoint.', 'am-plugin' ),
-				'data'    => wp_strip_all_tags( $request['body'] ),
+				'data'    => json_decode( wp_strip_all_tags( $request['body'] ), true ),
 			);
 
 			/**
@@ -144,11 +144,11 @@ class API {
 	 * Set transient for a given URL with an expiry as specified.
 	 *
 	 * @param string $transient_name Unique name for the transient.
-	 * @param string $transient_data Transient data to be stored.
+	 * @param array  $transient_data Transient data to be stored.
 	 * @return void
 	 */
-	private function save_transient( string $transient_name, string $transient_data ) : void {
-		set_transient( $transient_name, $transient_data, $this->transient_expiry );
+	private function save_transient( string $transient_name, array $transient_data ) : void {
+		set_transient( $transient_name, wp_json_encode( $transient_data ), $this->transient_expiry );
 	}
 
 }
