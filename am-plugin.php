@@ -36,6 +36,10 @@ class AMPlugin {
 	 */
 	public function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
+
+		if ( class_exists( 'WP_CLI' ) ) {
+			\WP_CLI::add_command( 'amplugin', __NAMESPACE__ . '\Admin\CLI' );
+		}
 	}
 
 	/**

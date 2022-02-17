@@ -7,6 +7,8 @@
 
 namespace AwesomeMotive\AMPlugin\Admin;
 
+use AwesomeMotive\AMPlugin\Config;
+
 /**
  * Base class for making API calls.
  */
@@ -18,13 +20,6 @@ class API {
 	 * @var array
 	 */
 	public $response = array();
-
-	/**
-	 * API endpoint to query.
-	 *
-	 * @var string
-	 */
-	private $api_url = 'https://miusage.com/v1';
 
 	/**
 	 * Endpoint URL to be used for the API call.
@@ -67,7 +62,7 @@ class API {
 		);
 
 		// Combine base API URL and endpoint to query.
-		$this->endpoint_url = sprintf( '%s/%s', $this->api_url, $endpoint );
+		$this->endpoint_url = sprintf( '%s/%s', Config::API_URL, $endpoint );
 
 		// Make the API call.
 		return $this->call_endpoint( $endpoint );
