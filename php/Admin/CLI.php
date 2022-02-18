@@ -17,7 +17,7 @@ use AwesomeMotive\AMPlugin\Config;
 class CLI extends WP_CLI_Command {
 
 	/**
-	 * Refresh the limit for making the API call.
+	 * Refresh the API data stored in database.
 	 *
 	 * ## OPTIONS
 	 *
