@@ -3,11 +3,18 @@
  *
  * Fetch info via an AJAX call
  */
+ function convertEpochToSpecificTimezone(timeEpoch, offset) {
+    var d = new Date(timeEpoch);
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);  // Converts to UTC 00:00
+    var nd = new Date(utc + (3600000 * offset));
+    return nd.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) + ' ' + nd.toLocaleTimeString('en-US');
+}
+
 (function($) {
     'use strict';
 
-    let table_head = $('#amplugin-data-table thead');
-    let table_body = $('#amplugin-data-table tbody');
+    const table_head = $('#amplugin-data-table table thead');
+    const table_body = $('#amplugin-data-table table tbody');
 
     $.ajax({
         type: 'get',
@@ -27,6 +34,10 @@
             var headers = data.response.data?.data?.headers;
             var rows = data.response.data?.data?.rows;
 
+            if (data.response.data.title) {
+                $('#amplugin-data-table').prepend('<h3>' + data.response.data.title + '</h3><br>');
+            }
+
             if (Array.isArray(headers)) {
                 headers.forEach(header => {
                     table_head.append('<th>' + header + '</th>');
@@ -35,14 +46,14 @@
 
             if (typeof rows === 'object') {
                 for (const row in rows) {
-                    let human_date = new Date(rows[row].date);
+                    var human_date = convertEpochToSpecificTimezone(rows[row].date * 1000, 0);
 
                     table_body.append('<tr>');
                     table_body.append('<td>' + rows[row].id + '</td>');
                     table_body.append('<td>' + rows[row].fname + '</td>');
                     table_body.append('<td>' + rows[row].lname + '</td>');
                     table_body.append('<td>' + rows[row].email + '</td>');
-                    table_body.append('<td>' + human_date.toLocaleTimeString('en-US', { hour12: true }) + '</td>');
+                    table_body.append('<td>' + human_date + '</td>');
                     table_body.append('</tr>');
                 }
             }

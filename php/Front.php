@@ -48,7 +48,7 @@ class Front {
 		);
 		wp_localize_script( 'amplugin-shortcode', 'amplugin_l10n', $localize );
 
-		return '<table class="table table-default" id="amplugin-data-table"><thead></thead><tbody></tbody></table>';
+		return '<div id="amplugin-data-table"><table class="table table-default"><thead></thead><tbody></tbody></table></div>';
 	}
 
 }
