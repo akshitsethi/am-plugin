@@ -1,4 +1,4 @@
-VERSION := 1.0.0
+VERSION := 1.0.1
 PLUGINSLUG := am-plugin
 PLUGINPATH := $(shell pwd)
 
@@ -9,14 +9,14 @@ install:
 clover.xml: install test
 
 update_version:
-	sed -i "" "s/@##VERSION##@/${VERSION}/" $(PLUGINSLUG).php
-	sed -i "" "s/@##VERSION##@/${VERSION}/" php/Config.php
-	sed -i "" "s/@##VERSION##@/${VERSION}/" i18n/$(PLUGINSLUG).pot
+	sed -i "s/@##VERSION##@/${VERSION}/" $(PLUGINSLUG).php
+	sed -i "s/@##VERSION##@/${VERSION}/" php/Config.php
+	sed -i "s/@##VERSION##@/${VERSION}/" i18n/$(PLUGINSLUG).pot
 
 remove_version:
-	sed -i "" "s/${VERSION}/@##VERSION##@/" $(PLUGINSLUG).php
-	sed -i "" "s/${VERSION}/@##VERSION##@/" php/Config.php
-	sed -i "" "s/${VERSION}/@##VERSION##@/" i18n/$(PLUGINSLUG).pot
+	sed -i "s/${VERSION}/@##VERSION##@/" $(PLUGINSLUG).php
+	sed -i "s/${VERSION}/@##VERSION##@/" php/Config.php
+	sed -i "s/${VERSION}/@##VERSION##@/" i18n/$(PLUGINSLUG).pot
 
 test:
 	bin/phpunit --coverage-html=./reports
