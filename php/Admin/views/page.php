@@ -5,10 +5,12 @@
  * @package AwesomeMotive\AMPlugin
  */
 
+use AwesomeMotive\AMPlugin\Config;
+
 ?>
 
 <div class="wrap">
-	<h2><?php esc_html_e( 'AM Plugin', 'am-plugin' ); ?></h2>
+	<h2><?php echo esc_html( Config::get_plugin_name() ); ?></h2>
 	<hr>
 
 	<?php

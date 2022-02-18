@@ -1,0 +1,60 @@
+# Copyright (C) 2022 akshitsethi
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: AM Plugin @##VERSION##@\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/am-plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-02-18T06:19:28+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: am-plugin\n"
+
+#. Plugin Name of the plugin
+#: php/Admin.php:66
+#: php/Admin.php:67
+#: php/Admin/views/page.php:11
+#: php/Config.php:64
+msgid "AM Plugin"
+msgstr ""
+
+#. Description of the plugin
+msgid "Plugin crafted for Awesome Motive."
+msgstr ""
+
+#. Author of the plugin
+msgid "akshitsethi"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://akshitsethi.com"
+msgstr ""
+
+#: php/Admin.php:100
+msgid "Twitter"
+msgstr ""
+
+#: php/Admin/API.php:61
+msgid "There was an error while fetching data from the API endpoint."
+msgstr ""
+
+#: php/Admin/API.php:83
+#: php/Admin/API.php:102
+msgid "Data has been fetched successfully from the API endpoint."
+msgstr ""
+
+#: php/Admin/CLI.php:46
+msgid "API endpoint has been refreshed."
+msgstr ""
+
+#: php/Admin/CLI.php:48
+msgid "API endpoint data is not available."
+msgstr ""
+
+#: php/Front.php:47
+msgid "An error was encountered while trying to communicate with the API."
+msgstr ""
