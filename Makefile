@@ -9,14 +9,14 @@ install:
 clover.xml: install test
 
 update_version:
-	sed -i "s/@##VERSION##@/${VERSION}/" $(PLUGINSLUG).php
-	sed -i "s/@##VERSION##@/${VERSION}/" inc/Config.php
-	sed -i "s/@##VERSION##@/${VERSION}/" i18n/$(PLUGINSLUG).pot
+	sed -i "" "s/@##VERSION##@/${VERSION}/" $(PLUGINSLUG).php
+	sed -i "" "s/@##VERSION##@/${VERSION}/" php/Config.php
+	sed -i "" "s/@##VERSION##@/${VERSION}/" i18n/$(PLUGINSLUG).pot
 
 remove_version:
-	sed -i "s/${VERSION}/@##VERSION##@/" $(PLUGINSLUG).php
-	sed -i "s/${VERSION}/@##VERSION##@/" inc/Config.php
-	sed -i "s/${VERSION}/@##VERSION##@/" i18n/$(PLUGINSLUG).pot
+	sed -i "" "s/${VERSION}/@##VERSION##@/" $(PLUGINSLUG).php
+	sed -i "" "s/${VERSION}/@##VERSION##@/" php/Config.php
+	sed -i "" "s/${VERSION}/@##VERSION##@/" i18n/$(PLUGINSLUG).pot
 
 test:
 	bin/phpunit --coverage-html=./reports
@@ -34,15 +34,16 @@ build: install update_version
 
 copy:
 	mkdir $(PLUGINSLUG)
-	cp -ar assets inc i18n vendor $(PLUGINSLUG)/
-	cp $(PLUGINSLUG).php uninstall.php readme.txt license.txt $(PLUGINSLUG)/
+	cp -r assets php i18n vendor $(PLUGINSLUG)/
+	cp $(PLUGINSLUG).php uninstall.php license.txt $(PLUGINSLUG)/
 
 dist: install update_version
 	mkdir -p dist
 	rm -rf vendor
 	composer install --no-dev
 	composer dump-autoload -o
-	cp -r $(PLUGINPATH)/. dist/
+	cp -r assets php i18n vendor dist/
+	cp $(PLUGINSLUG).php uninstall.php license.txt dist/
 	make remove_version
 
 release:

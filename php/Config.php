@@ -27,6 +27,13 @@ class Config {
 	public static $plugin_path;
 
 	/**
+	 * API endpoint to query.
+	 *
+	 * @var string
+	 */
+	const API_URL = 'https://miusage.com/v1';
+
+	/**
 	 * Plugin slug to be used for nonce, scripts enqueue, etc.
 	 *
 	 * @var string
@@ -51,7 +58,7 @@ class Config {
 	/**
 	 * Get plugin name.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public static function get_plugin_name() : string {
 		return esc_html__( 'AM Plugin', 'am-plugin' );
