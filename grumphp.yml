@@ -9,4 +9,3 @@ grumphp:
       make_file: ~
       task: fmt
       triggered_by: [php]
-    phpunit: ~
