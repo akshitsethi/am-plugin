@@ -49,7 +49,7 @@ dist: install update_version
 release:
 	git stash
 	git fetch -p
-	git checkout master
+	git checkout main
 	git pull -r
 	git tag v$(VERSION)
 	git push origin v$(VERSION)
